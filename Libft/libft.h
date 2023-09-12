@@ -6,7 +6,7 @@
 /*   By: cbouwen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:37:29 by cbouwen           #+#    #+#             */
-/*   Updated: 2023/05/08 11:24:36 by cbouwen          ###   ########.fr       */
+/*   Updated: 2023/09/12 14:23:33 by cbouwen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ t_list				*ft_lstnew(void *content);
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+long				ft_atol(const char *nptr);
 
 #endif

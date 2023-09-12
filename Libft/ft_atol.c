@@ -6,11 +6,11 @@
 /*   By: cbouwen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:59:23 by cbouwen           #+#    #+#             */
-/*   Updated: 2023/09/06 13:04:45 by cbouwen          ###   ########.fr       */
+/*   Updated: 2023/09/12 14:22:45 by cbouwen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atol(const char *nptr)
+long	ft_atol(const char *nptr)
 {
 	int		i;
 	int		neg;

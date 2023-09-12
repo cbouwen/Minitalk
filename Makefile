@@ -1,9 +1,10 @@
-NAME = server
+NAME = server client
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 
-SRC = server.c
+SERVER_SRC = server.c
+CLIENT_SRC = client.c
 
 LIBFT_DIR = ./Libft/
 LIBFT_LIB = $(LIBFT_DIR)libft.a
@@ -15,8 +16,11 @@ PRINTF_INC = -I $(PRINTF_DIR)
 
 all : $(NAME)
 
-$(NAME) : $(LIBFT_LIB) $(PRINTF_LIB) $(SRC)
-	$(CC) $(CFLAGS) $(SRC) $(LIBFT_LIB) $(PRINTF_LIB) -o $(NAME)
+client : $(LIBFT_LIB) $(PRINTF_LIB) $(CLIENT_SRC)
+	$(CC) $(CFLAGS) $(CLIENT_SRC) $(LIBFT_LIB) $(PRINTF_LIB) -o client
+
+server : $(LIBFT_LIB) $(PRINTF_LIB) $(SERVER_SRC)
+	$(CC) $(CFLAGS) $(SERVER_SRC) $(LIBFT_LIB) $(PRINTF_LIB) -o server
 
 $(LIBFT_LIB):
 	make -C $(LIBFT_DIR)
