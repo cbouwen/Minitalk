@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbouwen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 17:42:43 by cbouwen           #+#    #+#             */
-/*   Updated: 2023/09/15 13:18:42 by cbouwen          ###   ########.fr       */
+/*   Updated: 2023/09/15 16:34:40 by cbouwen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
+
+void	confirm_msg(int signum)
+{
+	if (signum == SIGUSR1)
+		ft_printf("Message Received!\n");
+}
 
 void	handler(pid_t pid, char c)
 {
@@ -33,6 +39,7 @@ int	main(int argc, char **argv)
 	long	pid;
 	int		i;
 
+	signal(SIGUSR1, confirm_msg);
 	i = 0;
 	if (argc != 3)
 		ft_printf("Error\n");
@@ -44,5 +51,6 @@ int	main(int argc, char **argv)
 			handler((pid_t)pid, argv[2][i]);
 			i++;
 		}
+		handler((pid_t)pid, '\0');
 	}
 }
