@@ -33,8 +33,8 @@ void	handle_sigusr(int signum, siginfo_t *info, void *context)
 
 int	main(void)
 {
-	pid_t	pid;
-	struct	sigaction	act;
+	pid_t				pid;
+	struct sigaction	act;
 
 	pid = getpid();
 	ft_printf("Server PID: %d\n", pid);
